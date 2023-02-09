@@ -2,20 +2,25 @@
 //    into your processing window
 
 PImage cat;
-int x=0;
-int y=0;
-
+int x= 289;
+int y= 171;
+int x2= 224;
+int y2= 156;
+int x3= 440;
+int y3= 242;
+int widt= 20;
+int heigh= 20;
 void setup() {
 
 // 2. Change "cat.jpg" to match the name of the image you selected
-cat = loadImage("cat.jpg");
+cat = loadImage("cat3.jpeg");
 
 // 3. Set the size of the sketch.
-
+size(500,500);
 // 4. Resize the cat so it is the same size as the sketch
-
+cat.resize(500,500);
 // 5. DRAW CAT. Use the background() command to make the cat the background.
-//
+background(cat);
 
 
   }
@@ -25,6 +30,7 @@ void draw() {
 // 6. WHERE IS THE EYE? You can use this to find the x and y for the center of the cat's eyes.
       if(mousePressed){
           println("Mouse’s x-position: " + mouseX + "\n" + "Mouse’s y-position: " + mouseY + "\n");
+          
       }
 
 // 7. Run the program and click on one of the cat's eyes.
@@ -35,23 +41,40 @@ void draw() {
 noStroke();
 
 // 8.  COLOR.  Use the fill() command to set the color of your ellipse to the laser color you want.
-
+fill(#A6E0A5);
 // 9. Use the ellipse() command to draw a circle on the eye (you will have to guess its size).
 //    Use the x and y variables you just created to place the ellipse in the correct location.
 //                  The ellipse command looks like this:
-                ellipse(x, y, width, height);
+                ellipse(x, y, widt, heigh);
+                ellipse(x2, y2, widt, heigh); 
+                ellipse(x3, y3, widt, heigh); 
+                
+ if(x > 500 && y > 500){
+  x=289;
+  y=171;
+  x2=224;
+  y2=156;
+  x3=440;
+  y3=242;
+  widt=20;
+  heigh=20;
+}  
 // Run the program to make sure it is in the right place and is the right size.
 }
 
 // 10.  LASER BEAM.  This code will make your ellipse move down and to the right 
 //      when you press the space bar. 
 void keyPressed() {
-    x+=1;
-    y+=1;
-
-// 12.  If you want them to go faster, add more than one each time the key is pressed
+    x-=10;
+    y+=10;
+    x2-=10;
+    y2+=10;
+    y3-=10;
+    widt+=10;
+    heigh+=10;
 }
-
+// 12.  If you want them to go faster, add more than one each time the key is pressed
+  
 
 //13.   Now make the cat shoot lasers from the other eye.
 
